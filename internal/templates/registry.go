@@ -21,7 +21,7 @@ var Registry = map[string]Template{
 		Description: "Main template for general development projects with comprehensive Claude Code integration",
 		RepoURL:     DefaultRepoURL,
 		Branch:      "main",
-		Commit:      "bddbdd5e03b0b6394a80bb60643fc87b3b4d19f5", // Latest commit - Update command models to claude-sonnet-4-5 and improve formatting
+		Commit:      "8d03db51aadad3db61fbecf61e73b419ec8b7aeb", // Latest commit - Fix formatting in command documentation files
 		Language:    "",                                         // Language-agnostic
 		Tags:        []string{"general", "default"},
 	},
