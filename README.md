@@ -16,7 +16,7 @@ Strategic Claude Basic CLI automates the complex setup process of integrating St
 
 - **One-command installation** - Set up Strategic Claude Basic in any project instantly
 - **Smart updates** - Update framework core while preserving your custom content
-- **Automatic symlinks** - Creates proper `.claude` and `.codex` integration for AI tools
+- **Automatic symlinks** - Creates proper `.claude` integration for Claude Code
 - **Status validation** - Verify installation health and detect issues
 - **Clean removal** - Safely remove framework without affecting your work
 - **Shell completions** - Tab completion for bash, zsh, fish, and PowerShell
@@ -26,8 +26,8 @@ Strategic Claude Basic CLI automates the complex setup process of integrating St
 
 1. **Clones** Strategic Claude Basic template at a fixed, tested commit
 2. **Installs** `.strategic-claude-basic/` directory with framework content
-3. **Creates** `.claude/` and `.codex/` directory structures for AI tool integration
-4. **Links** AI tool directories to framework components via symlinks
+3. **Creates** `.claude/` directory structure for Claude Code integration
+4. **Links** Claude Code directories to framework components via symlinks
 5. **Preserves** your custom content during updates
 
 ## Installation
@@ -164,21 +164,20 @@ your-project/
 │   ├── hooks/                       # Git hooks
 │   │   └── strategic -> ../../.strategic-claude-basic/core/hooks
 │   └── settings.json
-├── .codex/                          # Codex AI integration
-│   ├── prompts/                     # Codex prompts
-│   │   └── strategic -> ../../.strategic-claude-basic/core/commands
-│   ├── hooks/                       # Git hooks
-│   │   └── strategic -> ../../.strategic-claude-basic/core/hooks
-│   └── config.toml
 └── .strategic-claude-basic/         # Framework installation
     ├── archives/                    # Archived documentation (preserved)
-    │   └── .gitkeep
+    │   ├── decisions/               # Archived decisions
+    │   ├── issues/                  # Archived issues
+    │   ├── plan/                    # Archived plans
+    │   ├── product/                 # Archived product docs
+    │   ├── research/                # Archived research
+    │   └── summary/                 # Archived summaries
     ├── core/                        # Commands and agent definitions (updated)
     │   ├── agents/                  # Core agent definitions
     │   ├── commands/                # Core commands
     │   └── hooks/                   # Core hooks
-    ├── guides/                      # User guides (updated)
-    │   └── ast-grep-patterns.md
+    ├── decisions/                   # Decision records (preserved)
+    │   └── CLAUDE.md
     ├── issues/                      # Issue tracking (preserved)
     │   └── CLAUDE.md
     ├── plan/                        # Implementation plans (preserved)
@@ -195,27 +194,25 @@ your-project/
     │   ├── hooks/                   # Hook templates
     │   ├── ignore/                  # Ignore file templates
     │   └── mcps/                    # MCP templates
-    ├── tools/                       # Utility tools (preserved)
-    └── validation/                  # Validation scripts (preserved)
-        └── CLAUDE.md
+    └── tools/                       # Utility tools (preserved)
+        └── .gitkeep
 ```
 
 ### Framework vs User Content
 
 **Framework directories** (replaced during `--force-core` updates):
 - `core/` - Strategic Claude agents, commands, and hooks
-- `guides/` - Framework documentation and usage guides
 - `templates/` - Framework templates and examples
 
 **User directories** (preserved during `--force-core` updates):
 - `archives/` - Your archived work and completed projects
+- `decisions/` - Decision records and architectural documentation
 - `issues/` - Project-specific issue tracking
 - `plan/` - Your planning documents and strategies
 - `product/` - Product documentation and roadmaps
 - `research/` - Your research notes and findings
 - `summary/` - Your summaries and reports
 - `tools/` - Custom utility tools and scripts
-- `validation/` - Validation scripts and testing tools
 
 ## Framework Usage
 
@@ -256,8 +253,8 @@ For updating framework while preserving your work:
 ```bash
 strategic-claude init --force-core
 ```
-- Updates `core/`, `guides/`, `templates/` directories
-- Preserves `archives/`, `issues/`, `plan/`, `product/`, `research/`, `summary/`, `tools/`, `validation/`
+- Updates `core/`, `templates/` directories
+- Preserves `archives/`, `decisions/`, `issues/`, `plan/`, `product/`, `research/`, `summary/`, `tools/`
 - Maintains your custom content and configurations
 
 ### Full Overwrite (`--force`)

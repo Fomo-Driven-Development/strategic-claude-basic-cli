@@ -22,20 +22,18 @@ const (
 
 	// Framework directory structure within .strategic-claude-basic/
 	CoreDir      = "core"
-	GuidesDir    = "guides"
 	TemplatesDir = "templates"
 	ConfigDir    = "config"
 
 	// User directories that are preserved during updates
-	ArchivesDir   = "archives"
-	DecisionsDir  = "decisions"
-	IssuesDir     = "issues"
-	PlanDir       = "plan"
-	ProductDir    = "product"
-	ResearchDir   = "research"
-	SummaryDir    = "summary"
-	ToolsDir      = "tools"
-	ValidationDir = "validation"
+	ArchivesDir  = "archives"
+	DecisionsDir = "decisions"
+	IssuesDir    = "issues"
+	PlanDir      = "plan"
+	ProductDir   = "product"
+	ResearchDir  = "research"
+	SummaryDir   = "summary"
+	ToolsDir     = "tools"
 
 	// Core subdirectories
 	AgentsDir   = "agents"
@@ -58,10 +56,10 @@ const (
 	CodexConfigBackupPrefix = "config-backup-"
 
 	// Directories that are replaced during updates
-	ReplacedDirs = "core/,guides/,templates/"
+	ReplacedDirs = "core/,templates/"
 
 	// User directories preserved during updates
-	UserPreservedDirs = "archives/,decisions/,issues/,plan/,product/,research/,summary/,tools/,validation/"
+	UserPreservedDirs = "archives/,decisions/,issues/,plan/,product/,research/,summary/,tools/"
 
 	// Default timeout values
 	DefaultGitTimeout     = 30 * time.Second
@@ -108,7 +106,6 @@ const (
 func GetFrameworkDirectories() []string {
 	return []string{
 		CoreDir,
-		GuidesDir,
 		TemplatesDir,
 	}
 }
@@ -117,7 +114,6 @@ func GetFrameworkDirectories() []string {
 func GetCoreDirectories() []string {
 	return []string{
 		CoreDir,
-		GuidesDir,
 		TemplatesDir,
 	}
 }
@@ -133,7 +129,6 @@ func GetUserPreservedDirectories() []string {
 		ResearchDir,
 		SummaryDir,
 		ToolsDir,
-		ValidationDir,
 	}
 }
 

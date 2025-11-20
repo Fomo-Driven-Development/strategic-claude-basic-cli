@@ -117,7 +117,6 @@ func TestService_CheckInstallation_PartialInstallation(t *testing.T) {
 				config.CommandsDir: nil,
 				config.HooksDir:    nil,
 			},
-			config.GuidesDir:    nil,
 			config.TemplatesDir: nil,
 			config.ConfigDir:    nil,
 		},
@@ -170,7 +169,6 @@ func TestService_CheckInstallation_CompleteInstallation(t *testing.T) {
 				config.CommandsDir: nil,
 				config.HooksDir:    nil,
 			},
-			config.GuidesDir:    nil,
 			config.TemplatesDir: nil,
 			config.ConfigDir:    nil,
 		},
@@ -233,7 +231,6 @@ func TestService_CheckInstallation_BrokenSymlinks(t *testing.T) {
 				config.CommandsDir: nil,
 				config.HooksDir:    nil,
 			},
-			config.GuidesDir:    nil,
 			config.TemplatesDir: nil,
 			config.ConfigDir:    nil,
 		},
@@ -327,7 +324,6 @@ func TestService_CheckInstallation_MissingFrameworkDirectories(t *testing.T) {
 
 	// Check for specific missing directory issues
 	expectedIssues := []string{
-		"Missing framework directory: guides",
 		"Missing framework directory: templates",
 		"Missing core subdirectory: core/commands",
 		"Missing core subdirectory: core/hooks",
@@ -443,7 +439,6 @@ func TestService_detectStrategicClaudeBasic(t *testing.T) {
 						config.CommandsDir: nil,
 						config.HooksDir:    nil,
 					},
-					config.GuidesDir:    nil,
 					config.TemplatesDir: nil,
 					config.ConfigDir:    nil,
 				},
@@ -459,7 +454,6 @@ func TestService_detectStrategicClaudeBasic(t *testing.T) {
 						config.AgentsDir: nil,
 						// Missing commands and hooks
 					},
-					config.GuidesDir:    nil,
 					config.TemplatesDir: nil,
 					config.ConfigDir:    nil,
 				},

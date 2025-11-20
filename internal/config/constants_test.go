@@ -9,7 +9,7 @@ import (
 func TestGetFrameworkDirectories(t *testing.T) {
 	dirs := GetFrameworkDirectories()
 
-	expectedDirs := []string{CoreDir, GuidesDir, TemplatesDir}
+	expectedDirs := []string{CoreDir, TemplatesDir}
 
 	if len(dirs) != len(expectedDirs) {
 		t.Errorf("Expected %d directories, got %d", len(expectedDirs), len(dirs))
@@ -37,7 +37,7 @@ func TestGetFrameworkDirectories(t *testing.T) {
 func TestGetCoreDirectories(t *testing.T) {
 	dirs := GetCoreDirectories()
 
-	expectedDirs := []string{CoreDir, GuidesDir, TemplatesDir}
+	expectedDirs := []string{CoreDir, TemplatesDir}
 
 	if len(dirs) != len(expectedDirs) {
 		t.Errorf("Expected %d directories, got %d", len(expectedDirs), len(dirs))
@@ -52,9 +52,6 @@ func TestGetCoreDirectories(t *testing.T) {
 	// Verify these are the directories that get replaced during updates
 	if !contains(dirs, CoreDir) {
 		t.Error("Expected CoreDir in core directories")
-	}
-	if !contains(dirs, GuidesDir) {
-		t.Error("Expected GuidesDir in core directories")
 	}
 	if !contains(dirs, TemplatesDir) {
 		t.Error("Expected TemplatesDir in core directories")
@@ -72,7 +69,7 @@ func TestGetCoreDirectories(t *testing.T) {
 func TestGetUserPreservedDirectories(t *testing.T) {
 	dirs := GetUserPreservedDirectories()
 
-	expectedDirs := []string{ArchivesDir, DecisionsDir, IssuesDir, PlanDir, ProductDir, ResearchDir, SummaryDir, ToolsDir, ValidationDir}
+	expectedDirs := []string{ArchivesDir, DecisionsDir, IssuesDir, PlanDir, ProductDir, ResearchDir, SummaryDir, ToolsDir}
 
 	if len(dirs) != len(expectedDirs) {
 		t.Errorf("Expected %d directories, got %d", len(expectedDirs), len(dirs))
@@ -96,8 +93,8 @@ func TestGetUserPreservedDirectories(t *testing.T) {
 	if contains(dirs, CoreDir) {
 		t.Error("CoreDir should not be in user preserved directories")
 	}
-	if contains(dirs, GuidesDir) {
-		t.Error("GuidesDir should not be in user preserved directories")
+	if contains(dirs, TemplatesDir) {
+		t.Error("TemplatesDir should not be in user preserved directories")
 	}
 }
 
@@ -234,8 +231,8 @@ func TestIsUserPreservedPath(t *testing.T) {
 			expected: false,
 		},
 		{
-			name:     "guides directory (not preserved)",
-			path:     GuidesDir,
+			name:     "templates directory (not preserved)",
+			path:     TemplatesDir,
 			expected: false,
 		},
 		{
@@ -277,11 +274,6 @@ func TestIsCoreFile(t *testing.T) {
 			expected: true,
 		},
 		{
-			name:     "guides directory",
-			path:     GuidesDir,
-			expected: true,
-		},
-		{
 			name:     "templates directory",
 			path:     TemplatesDir,
 			expected: true,
@@ -292,8 +284,8 @@ func TestIsCoreFile(t *testing.T) {
 			expected: true,
 		},
 		{
-			name:     "nested path in guides",
-			path:     GuidesDir + "/installation/guide.md",
+			name:     "nested path in templates",
+			path:     TemplatesDir + "/hooks/hook.sh",
 			expected: true,
 		},
 		{
@@ -348,7 +340,6 @@ func TestConstants_Values(t *testing.T) {
 		{"BackupDirPrefix", BackupDirPrefix, true},
 		{"TempDirPrefix", TempDirPrefix, true},
 		{"CoreDir", CoreDir, true},
-		{"GuidesDir", GuidesDir, true},
 		{"TemplatesDir", TemplatesDir, true},
 		{"ArchivesDir", ArchivesDir, true},
 		{"IssuesDir", IssuesDir, true},

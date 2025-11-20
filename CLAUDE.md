@@ -65,8 +65,8 @@ The codebase follows a layered architecture:
 #### Configuration (internal/config/constants.go)
 Critical constants for framework behavior:
 - **Repository**: `Fomo-Driven-Development/strategic-claude-base.git` at fixed commit
-- **Directories Replaced**: core/, guides/, templates/ (framework content)
-- **Directories Preserved**: archives/, issues/, plan/, product/, research/, summary/, tools/, validation/ (user content)
+- **Directories Replaced**: core/, templates/ (framework content)
+- **Directories Preserved**: archives/, decisions/, issues/, plan/, product/, research/, summary/, tools/ (user content)
 - **Symlinks Created**:
   - `.claude/agents/strategic` → `../../.strategic-claude-basic/core/agents`
   - `.claude/commands/strategic` → `../../.strategic-claude-basic/core/commands`
@@ -80,7 +80,7 @@ Critical constants for framework behavior:
 
 #### Installation Types
 1. **New Installation**: Full `.strategic-claude-basic/` directory copy
-2. **Core Update** (`--force-core`): Replace only core/, guides/, templates/ (preserve user content in archives/, issues/, plan/, product/, research/, summary/, tools/, validation/)
+2. **Core Update** (`--force-core`): Replace only core/, templates/ (preserve user content in archives/, decisions/, issues/, plan/, product/, research/, summary/, tools/)
 3. **Full Overwrite** (`--force`): Replace entire directory
 
 #### Directory Structure
@@ -91,16 +91,21 @@ target-project/
 │   │   ├── agents/                  # Symlink targets
 │   │   ├── commands/                # Symlink targets
 │   │   └── hooks/                   # Symlink targets
-│   ├── guides/                      # Framework guides (replaced)
 │   ├── templates/                   # Framework templates (replaced)
 │   ├── archives/                    # User content (preserved)
+│   │   ├── decisions/               # Archived decisions
+│   │   ├── issues/                  # Archived issues
+│   │   ├── plan/                    # Archived plans
+│   │   ├── product/                 # Archived product docs
+│   │   ├── research/                # Archived research
+│   │   └── summary/                 # Archived summaries
+│   ├── decisions/                   # User content (preserved)
 │   ├── issues/                      # User content (preserved)
 │   ├── plan/                        # User content (preserved)
 │   ├── product/                     # User content (preserved)
 │   ├── research/                    # User content (preserved)
 │   ├── summary/                     # User content (preserved)
-│   ├── tools/                       # User content (preserved)
-│   └── validation/                  # User content (preserved)
+│   └── tools/                       # User content (preserved)
 └── .claude/                         # Claude Code integration
     ├── agents/
     │   └── strategic -> ../../.strategic-claude-basic/core/agents
