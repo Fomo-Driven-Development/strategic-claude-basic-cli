@@ -21,6 +21,11 @@ func TestGetTemplate(t *testing.T) {
 			wantErr: false,
 		},
 		{
+			name:    "get web-explorer template",
+			id:      "web-explorer",
+			wantErr: false,
+		},
+		{
 			name:    "get non-existent template",
 			id:      "nonexistent",
 			wantErr: true,
@@ -127,6 +132,11 @@ func TestValidateTemplateID(t *testing.T) {
 			wantErr: false,
 		},
 		{
+			name:    "valid web-explorer template",
+			id:      "web-explorer",
+			wantErr: false,
+		},
+		{
 			name:    "invalid template",
 			id:      "invalid",
 			wantErr: true,
@@ -170,7 +180,7 @@ func TestGetTemplateIDs(t *testing.T) {
 	}
 
 	// Check that registry contains expected templates
-	expectedTemplates := []string{"main", "ccr"}
+	expectedTemplates := []string{"main", "ccr", "web-explorer"}
 	for _, expected := range expectedTemplates {
 		found := false
 		for _, id := range ids {
@@ -194,7 +204,7 @@ func TestFilterTemplatesByLanguage(t *testing.T) {
 		{
 			name:          "empty language (all templates)",
 			language:      "",
-			expectAtLeast: 2, // main and ccr are both language-agnostic
+			expectAtLeast: 3, // main, ccr, and web-explorer are all language-agnostic
 		},
 		{
 			name:          "go language",

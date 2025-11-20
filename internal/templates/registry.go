@@ -35,6 +35,16 @@ var Registry = map[string]Template{
 		Language:    "",
 		Tags:        []string{"ccr", "workflow", "specialized"},
 	},
+	"web-explorer": {
+		ID:          "web-explorer",
+		Name:        "Claude Web Explorer Template",
+		Description: "A template for browser automation projects using Chromium with MCP (Model Context Protocol) integration for Claude Code",
+		RepoURL:     DefaultRepoURL,
+		Branch:      "web-explorer",
+		Commit:      "1a91789daf511b8663e879c9e7e1f36755dfa2d6",
+		Language:    "",
+		Tags:        []string{"web", "explorer"},
+	},
 }
 
 // GetTemplate retrieves a template by ID
